@@ -1,0 +1,33 @@
+0.006   2019-11-27  Released-By: PERLANCAR; Urgency: medium
+
+	- Add fgcolor functions ({g,s}et_term_fgcolor,
+          term_fgcolor_is_{dark,light}).
+
+	- [doc] Show software compatibility/support using a table.
+
+
+0.005   2019-07-12  Released-By: PERLANCAR; Urgency: low
+
+	- No functional changes.
+
+	- [doc] Mark COLORFGBG in Environment.
+
+
+0.004   2019-07-12  Released-By: PERLANCAR; Urgency: medium
+
+	- Add functions: term_bgcolor_is_{dark,light}.
+
+
+0.003   2018-09-26  Released-By: PERLANCAR
+
+	- Move Rinci metadata from App::XTermUtils.
+
+
+0.002   2018-09-26  Released-By: PERLANCAR
+
+	- set_term_bgcolor(): Add option to print to STDERR.
+
+
+0.001   2018-09-25  Released-By: PERLANCAR
+
+        - First release.
