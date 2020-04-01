@@ -33,6 +33,7 @@ _
             pos => 0,
         },
     },
+    args_as => 'array',
     result_naked => 1,
     examples => [
         {args => {arg => 'https://www.youtube.com/watch?v=rp4UwPZfRis'}, result => 'rp4UwPZfRis'},
@@ -42,9 +43,9 @@ _
     ],
 };
 sub extract_youtube_video_id {
-    my %args = @_;
+    my $arg = shift;
 
-    $re = Regexp::Pattern::YouTube::RE{video_id}{pat};
+    my $re = $Regexp::Pattern::YouTube::RE{video_id}{pat};
     if ($arg =~ /\A$re\z/) {
         return $arg;
     } elsif ($arg =~ m!\Ahttps?://! &&
