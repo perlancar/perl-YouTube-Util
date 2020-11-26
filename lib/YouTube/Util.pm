@@ -40,6 +40,7 @@ _
         {args => {arg => 'https://www.youtube.com/watch?v=cl1p7SOwnEk&list=PLjxOg4YY7Ah2JGb_QvA6KSB6YmikzA2fo&index=2&t=0s'}, result => 'cl1p7SOwnEk'},
         {args => {arg => 'https://www.youtube.com/watch?list=PLjxOg4YY7Ah2JGb_QvA6KSB6YmikzA2fo&v=cl1p7SOwnEk&index=2&t=0s'}, result => 'cl1p7SOwnEk'},
         {args => {arg => 'https://www.youtube.com/embed/U9v2S49sHeQ?rel=0'}, result => 'U9v2S49sHeQ'},
+        {args => {arg => 'https://youtu.be/U9v2S49sHeQ'}, result => 'U9v2S49sHeQ'},
         {args => {arg => '$100,000 Name That Tune - Nick vs. Carol-SY-DnVZeFH0.mp4'}, result => 'SY-DnVZeFH0'},
         {args => {arg => 'GNdALsnBjh8'}, result => 'GNdALsnBjh8'},
         {args => {arg => 'foo'}, result => undef},
@@ -51,6 +52,8 @@ sub extract_youtube_video_id {
     my $re = $Regexp::Pattern::YouTube::RE{video_id}{pat};
     if ($arg =~ /\A$re\z/) {
         return $arg;
+    } elsif ($arg =~ m!\Ahttps?://youtu\.be/($re)(?:\?|\#|\z)!) {
+        return $1;
     } elsif ($arg =~ m!\Ahttps?://.+/embed/! &&
                  $arg =~ m!/embed/($re)(?:\?|\#|\z)!) {
         return $1;
